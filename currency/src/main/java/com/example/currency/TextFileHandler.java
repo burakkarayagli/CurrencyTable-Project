@@ -15,6 +15,7 @@ import java.util.Random;
 public class TextFileHandler {
 
     public static final BigDecimal VOLATILITY = new BigDecimal("0.0001");
+    public static final BigDecimal delta = new BigDecimal("0");
     private final String FILE_PATH = "Currency2.json";
     private final ObjectMapper objectMapper = new ObjectMapper();
     public File jsonFile = new ClassPathResource(FILE_PATH).getFile();
@@ -47,6 +48,10 @@ public class TextFileHandler {
 
             ((ObjectNode) node).put("bid", newBid);
             ((ObjectNode) node).put("ask", newAsk);
+            // (newBid + newAsk) - (oldBid + oldAsk) > delta
+            String upDownStatus = newBid.add(newAsk).subtract(oldBid.add(oldAsk)).compareTo(delta) > 0 ? "up" : "down";
+            ((ObjectNode) node).put("up_down_status", upDownStatus);
+            
         });
 
         //Write the updated json to the file

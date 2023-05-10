@@ -8,7 +8,7 @@
 
 .table td,
 .table th {
-    border: 1px solid #de0198;
+    border: 1px solid #000000;
     padding: 8px;
 }
 
@@ -16,13 +16,6 @@
     font-weight: bold;
 }
 
-.table td:nth-child(2) {
-    color: #04AA6D;
-}
-
-.table td:nth-child(3) {
-    color: #f92404;
-}
 
 .table tr:nth-child(even) {
     background-color: #f2f2f2;
@@ -36,20 +29,13 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #04AA6D;
+    background-color: #03cf83;
 }
 
 .table th:first-child {
     font-weight: bold;
 }
 
-.table th:nth-child(2) {
-    color: #00ff84;
-}
-
-.table th:nth-child(3) {
-    color: #ff0000;
-}
 
 .pin-cell {
     display: flex;
@@ -84,4 +70,13 @@
 .info-icon:hover {
     transform: scale(1.2);
 }
+
+.green {
+    background: rgba(90, 243, 8, 0.385)
+}
+
+.red {
+    background: rgba(227, 49, 49, 0.577)
+}
+
 

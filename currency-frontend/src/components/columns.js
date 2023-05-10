@@ -10,15 +10,23 @@ export const COLUMNS = [
     {
         Header: "Bid",
         accessor: "bid",
+        Cell: (value) => {
+           //format the value for 5 decimal places
+              return parseFloat(value.value).toFixed(5);
+        },
     },
     {
         Header: "Ask",
         accessor: "ask",
+        Cell: (value) => {
+            //format the value for 5 decimal places
+               return parseFloat(value.value).toFixed(5);
+         },
     },
     {
         Header: "",
         accessor: "pin",
-        Cell: (value) => {
+        Cell: () => {
             const [pinned, setPinned] = useState(false);
 
             return (

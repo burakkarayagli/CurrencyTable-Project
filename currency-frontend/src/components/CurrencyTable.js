@@ -6,12 +6,11 @@ import FilterBar from "./FilterBar";
 import TableStyle from "../styles/TableStyle.css"
 
 export default function CurrencyTable({data}) {
+
     //Search for "useMemo" in the React documentation
     //https://reactjs.org/docs/hooks-reference.html#usememo
     const columns = useMemo(() => COLUMNS, []);
     //const data = useMemo(() => Currency_DATA, []);
-
-    const [oldData, setOldData] = React.useState([]);
 
 
     const tableInstance = useTable(
@@ -55,10 +54,12 @@ export default function CurrencyTable({data}) {
                         return (
                             <tr key={index} {...row.getRowProps()}>
                                 {row.cells.map((cell, cellIndex) => {
+                                    console.log(cell.row.original.up_down_status === "up" ? "green" : "red")
                                     return (
-                                        <td
+                                        <td className={cell.row.original.up_down_status === "up" ? "green" : "red"}
                                             key={cellIndex}
                                             {...cell.getCellProps()}
+                                            
                                         >
                                             {cell.render("Cell")}
                                         </td>
